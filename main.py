@@ -73,7 +73,8 @@ if __name__ == "__main__":
 
     while True:
         # init or restart of the game
-        if still_life or not board:
+        if pew.keys() or still_life or not board:
+            random.seed(int(time.monotonic() * 1000))
             board = generate_board()
             restart_animation()
             pew.show(board_to_pix(board))
