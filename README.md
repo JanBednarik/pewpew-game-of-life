@@ -4,6 +4,8 @@
 
 Great for [EuroPython 2019](https://ep2019.europython.eu/events/pewpew-workshops/) badges (game consoles).
 
+In action video: https://youtu.be/ConQsd1Bu-o
+
 ## Usage
 
 Connect PewPew to your computer, it will appear as USB flash drive. Copy `main.py` to PewPew.
