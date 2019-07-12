@@ -66,16 +66,85 @@ def restart_animation():
     time.sleep(0.5)
 
 
+def get_board(keys):
+    """
+    Get preset board for pressed key or random one.
+    """
+    if keys & pew.K_UP:
+        # face
+        return {
+            (0, 1),
+            (1, 1),
+            (2, 1),
+            (5, 1),
+            (6, 1),
+            (7, 1),
+            (2, 5),
+            (3, 4),
+            (3, 6),
+            (4, 4),
+            (4, 6),
+            (5, 5),
+        }
+    elif keys & pew.K_DOWN:
+        # pulsar
+        return {
+            (1, 0),
+            (2, 0),
+            (3, 0),
+            (0, 1),
+            (0, 2),
+            (0, 3),
+            (5, 1),
+            (5, 2),
+            (5, 3),
+            (1, 5),
+            (2, 5),
+            (3, 5),
+        }
+    elif keys & pew.K_LEFT:
+        # spaceship
+        return {(0, 4), (1, 4), (3, 4), (4, 4), (1, 5), (3, 5), (2, 6)}
+    elif keys & pew.K_RIGHT:
+        # art with frog and beacon
+        return {
+            (1, 0),
+            (1, 1),
+            (1, 2),
+            (2, 1),
+            (2, 2),
+            (2, 3),
+            (4, 6),
+            (4, 7),
+            (5, 7),
+            (6, 4),
+            (7, 4),
+            (7, 5),
+            (0, 6),
+            (0, 7),
+            (1, 6),
+            (1, 7),
+            (6, 0),
+            (6, 1),
+            (7, 0),
+            (7, 1),
+        }
+    else:
+        return generate_board()
+
+
 if __name__ == "__main__":
     pew.init()
 
     board, still_life = None, False
 
     while True:
+        keys = pew.keys()
+
         # init or restart of the game
-        if pew.keys() or still_life or not board:
-            random.seed(int(time.monotonic() * 1000))
-            board = generate_board()
+        if keys or still_life or not board:
+            random.seed(int(time.monotonic() * 1000) + keys)
+            board = get_board(keys)
             restart_animation()
             pew.show(board_to_pix(board))
 

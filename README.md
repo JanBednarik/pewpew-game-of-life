@@ -8,8 +8,15 @@ In action video: https://youtu.be/ConQsd1Bu-o
 
 ## Usage
 
-Connect PewPew to your computer, it will appear as USB flash drive. Copy `main.py` to PewPew.
+Connect PewPew to your computer, it will appear as USB flash drive.
+Copy `main.py` to PewPew.
 
-There is no true random generator inside board's processor. So after turning it on it may alway generate the same life. If you press any button, you will reset the game and then it will start with really random life.
+Pressing button `up`, `down`, `left` or `right` will load preset board with nice oscillating life examples.
+Buttons `x` and `o` will reset life to random state.
 
-If life on the board dies or gets stuck in still life, the game will automatically reset. But when it get's into oscillating state, you have to reset it by pressing any button.
+There is no true random generator inside board's processor.
+So after turning it on it may alway generate the same life.
+If you press any button, you will reset the game and then it will start with random life.
+
+If life on the board dies or gets stuck in still life, the game will automatically reset.
+But when it get's into oscillating state, you have to reset it by pressing any button.
